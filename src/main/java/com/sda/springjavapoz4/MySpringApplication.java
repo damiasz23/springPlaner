@@ -1,5 +1,6 @@
 package com.sda.springjavapoz4;
 
+import com.sda.springjavapoz4.service.RandomGeneratorNumberService;
 import com.sda.springjavapoz4.service.SomeService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -21,4 +22,15 @@ public class MySpringApplication {
 	public SomeService aboutService(){
 		return new SomeService("About section");
 	}
+
+	@Bean
+	public RandomGeneratorNumberService small(){
+		return new RandomGeneratorNumberService(50, 0);
+	}
+
+	@Bean
+	public RandomGeneratorNumberService big(){
+		return new RandomGeneratorNumberService(9000, 1000);
+	}
+
 }

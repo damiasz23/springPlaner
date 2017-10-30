@@ -1,5 +1,6 @@
 package com.sda.springjavapoz4.controller;
 
+import com.sda.springjavapoz4.service.RandomGeneratorNumberService;
 import com.sda.springjavapoz4.service.SomeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -17,6 +18,10 @@ public class HomeController {
     @Autowired
     private SomeService myService;
 
+    @Qualifier("small")
+    @Autowired
+    private RandomGeneratorNumberService numberService;
+
     public HomeController() {
 //        this.someService = new SomeService();
     }
@@ -25,13 +30,18 @@ public class HomeController {
     public ModelAndView home(){
 
 //        SomeService someService = new SomeService();
+
         someService.someAction();
+        System.out.println(numberService.generateNumber());
+
         return new ModelAndView("home");
     }
     @GetMapping("/about")
     public ModelAndView about(){
 //        SomeService someService = new SomeService();
+
         myService.someAction();
+        System.out.println(numberService.generateNumber());
         return new ModelAndView("home");
     }
 
