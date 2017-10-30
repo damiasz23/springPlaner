@@ -17,7 +17,6 @@ public class MySpringApplication {
 		return new SomeService("My secret message");
 	}
 
-	@Primary
 	@Bean
 	public SomeService aboutService(){
 		return new SomeService("About section");
