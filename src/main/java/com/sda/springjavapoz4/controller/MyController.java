@@ -9,39 +9,30 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class HomeController {
+public class MyController {
+
+//    @Qualifier("bigNumbersGenerator")
+    @Autowired
+    private RandomNumbersGeneratorService randomNumbersGeneratorService;
 
     @Autowired
     private SomeService someService;
 
-    @Qualifier("aboutService")
-    @Autowired
-    private SomeService myService;
-
-//    @Qualifier("smallNumbersGenerator")
-    @Autowired
-    private RandomNumbersGeneratorService randomNumbersGeneratorService;
-
-    public HomeController() {
-//        this.someService = new SomeService();
-    }
-
-    @GetMapping("/")
-    public ModelAndView home() {
-        System.out.println(randomNumbersGeneratorService.generateNumber());
-        System.out.println(randomNumbersGeneratorService.generateNumber());
-        System.out.println(randomNumbersGeneratorService.generateNumber());
-        System.out.println(randomNumbersGeneratorService.generateNumber());
-        System.out.println(randomNumbersGeneratorService.generateNumber());
-        System.out.println(randomNumbersGeneratorService.generateNumber());
+    @GetMapping("/userspoinluhljkh")
+    public ModelAndView users() {
+        System.out.println("blabla");
         someService.someAction();
         return new ModelAndView("home");
     }
 
-    @GetMapping("/about")
-    public ModelAndView about() {
+    @GetMapping("contact-us")
+    public ModelAndView contactUs() {
         System.out.println(randomNumbersGeneratorService.generateNumber());
-        myService.someAction();
+        System.out.println(randomNumbersGeneratorService.generateNumber());
+        System.out.println(randomNumbersGeneratorService.generateNumber());
+        System.out.println(randomNumbersGeneratorService.generateNumber());
+        System.out.println(randomNumbersGeneratorService.generateNumber());
+        System.out.println(randomNumbersGeneratorService.generateNumber());
         return new ModelAndView("home");
     }
 }

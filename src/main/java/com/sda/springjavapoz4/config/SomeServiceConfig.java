@@ -10,12 +10,13 @@ public class SomeServiceConfig {
 
     @Primary
     @Bean
-    public SomeService someService(){
+    public SomeService someService() {
         return new SomeService("My secret message");
     }
 
     @Bean
-    public SomeService aboutService(){
+    public SomeService aboutService() {
         return new SomeService("About section");
     }
+
 }

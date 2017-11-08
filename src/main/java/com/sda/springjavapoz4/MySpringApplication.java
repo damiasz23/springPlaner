@@ -1,36 +1,17 @@
 package com.sda.springjavapoz4;
 
-import com.sda.springjavapoz4.service.RandomGeneratorNumberService;
-import com.sda.springjavapoz4.service.SomeService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Primary;
 
 @SpringBootApplication
 public class MySpringApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(MySpringApplication.class, args);
-	}
-	@Bean
-	public SomeService someService(){
-		return new SomeService("My secret message");
-	}
-
-	@Bean
-	public SomeService aboutService(){
-		return new SomeService("About section");
-	}
-
-	@Bean
-	public RandomGeneratorNumberService small(){
-		return new RandomGeneratorNumberService(50, 0);
-	}
-
-	@Bean
-	public RandomGeneratorNumberService big(){
-		return new RandomGeneratorNumberService(9000, 1000);
-	}
-
+    public static void main(String[] args) {
+        SpringApplication.run(MySpringApplication.class, args);
+    }
 }
+
+//1. klasa News - id(long), title, description, date, smallImgPath, bigImgPath, author(User)
+//2. NewsService - getAllNews(), getNews(id)
+//3. NewsController - getAllNews() oraz getNews(id)
+//4. allNews.html, news.html (bootstrap)*

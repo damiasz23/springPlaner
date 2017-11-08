@@ -5,10 +5,10 @@ import org.springframework.stereotype.Component;
 import java.util.Random;
 
 //@Component
-
 public class SomeService {
 
     private String message;
+
     private int value;
 
     public SomeService(String message) {
@@ -17,8 +17,7 @@ public class SomeService {
         this.message = message;
     }
 
-
-    public void someAction(){
-        System.out.printf(message + " " + value + "\n");
+    public void someAction() {
+        System.out.println(message + " " + value);
     }
 }
