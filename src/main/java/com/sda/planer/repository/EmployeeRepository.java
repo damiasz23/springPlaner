@@ -1,6 +1,6 @@
-package com.sda.planer.planer.repository;
+package com.sda.planer.repository;
 
-import com.sda.planer.planer.model.Employee;
+import com.sda.planer.model.Employee;
 import org.springframework.data.repository.CrudRepository;
 
 public interface EmployeeRepository extends CrudRepository<Employee, Long> {

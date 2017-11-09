@@ -1,6 +1,6 @@
-package com.sda.planer.planer.controller;
+package com.sda.planer.controller;
 
-import com.sda.planer.planer.service.EmployeeService;
+import com.sda.planer.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,7 +21,6 @@ public class EmployeeController {
     @GetMapping
     public ModelAndView getAllEmployees() {
         ModelAndView modelAndView = new ModelAndView("allEmployees");
-        modelAndView.addObject("message","Hello world");
         modelAndView.addObject("employees",employeeService.getAllEmployees());
         return modelAndView;
     }

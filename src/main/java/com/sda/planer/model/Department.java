@@ -1,4 +1,4 @@
-package com.sda.planer.planer.model;
+package com.sda.planer.model;
 
 public enum Department {
 
