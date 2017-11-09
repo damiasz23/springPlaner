@@ -9,7 +9,9 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <style>
         /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
-        .row.content {height: 1500px}
+        .row.content {
+            height: 1500px
+        }
 
         /* Set gray background color and 100% height */
         .sidenav {
@@ -30,7 +32,10 @@
                 height: auto;
                 padding: 15px;
             }
-            .row.content {height: auto;}
+
+            .row.content {
+                height: auto;
+            }
         }
     </style>
 </head>
@@ -41,7 +46,7 @@
         <div class="col-sm-3 sidenav">
             <h4>Adding Employees</h4>
 
-            <form action="/allEmployees" method="post">
+            <form action="/employees" method="post">
                 <h4>First name</h4>
                 <input type="text" name="firstName">
                 <br>
@@ -59,7 +64,7 @@
                 <br>
 
                 <h4>Department</h4>
-                <select>
+                <select name="department">
                     <option th:each="department : ${T(com.sda.planer.model.Department).values()}"
                             th:value="${department}"
                             th:text="${department}">
@@ -74,7 +79,21 @@
         </div>
 
         <div class="col-sm-9">
-            <h2>Employees list</h2>
+            <h1>Employees List:</h1>
+            <ul>
+
+                <li th:each="employee : ${employees}" style="list-style-type: none">
+                    <a href="#">
+                    <p th:text="${employee.id}"></p>
+                    <p th:text="'Imie: ' + ${employee.firstName}">Damian</p>
+                    <p th:text="'Nazwisko: ' + ${employee.lastName}">Gawlak</p>
+                    <p th:text="'Numer telefonu: ' + ${employee.phoneNumber}">532532524532</p>
+                    <p th:text="'Email: ' + ${employee.email}">dam@op.pl</p>
+                    <p th:text="'Department: ' + ${employee.department}">HR</p>
+                    </a>
+                </li>
+
+            </ul>
         </div>
     </div>
 </div>

@@ -54,5 +54,9 @@ public class EmployeeService {
         employeeRepository.save(employee);
     }
 
+    public Employee get(long id) {
+        return employeeRepository.findOne(id);
+    }
+
 
 }
