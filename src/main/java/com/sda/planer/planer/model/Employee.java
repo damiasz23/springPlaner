@@ -1,31 +1,32 @@
-package com.sda.springjavapoz4.model;
+package com.sda.planer.planer.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+
+import javax.persistence.*;
 
 @Entity
-public class User {
+public class Employee {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-
     private String firstName;
-
     private String lastName;
-
     private String phoneNumber;
+    private String email;
+    @Enumerated
+    private Department department;
 
-    public User() {
+
+    public Employee() {
     }
 
-    public User(long id, String firstName, String lastName, String phoneNumber) {
+    public Employee(long id, String firstName, String lastName, String phoneNumber, String email, Department department) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.department = department;
     }
 
     public long getId() {
@@ -60,19 +61,19 @@ public class User {
         this.phoneNumber = phoneNumber;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                '}';
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
     }
 }
-
-//1. Klasa user: id(long), firstName, lastName, phoneNumber
-//2. Nowa klasa: UsersService - getExampleUser()
-//3. Dorzucamy ja do kontekstu springa
-//4. UsersController getUser -> "/users/example" -> users.html
-//5. metoda w kontrolerze ma wyswietlac usera pobranego za pomoca getExampleUser()
