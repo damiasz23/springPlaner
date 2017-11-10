@@ -48,23 +48,63 @@
                 <li class="active"><a href="#">Home</a></li>
                 <li><a href="/employees">Employee</a></li>
                 <li><a href="/rooms">Room</a></li>
+                <li><a href="/meetings">Meeting</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
 </div>
 
 <div class="container">
+    <div class="row">
 
-    <div class="row" th:each="meeting : ${meetings}">
-        <div class="col-xs-4 meeting">
-            <h6 th:text="${meeting.date}">21-11-2017</h6>
-            <h1>
-                <strong th:text="${meeting.title}">Proces rekrutacyjny </strong><span
-                    th:text="${meeting.attendeesCount}">(6)</span><span th:text="${meeting.room.roomNumber}">Tej</span>
-            </h1>
-            <h3 th:text="${meeting.owner.firstName} + ' ' + ${meeting.owner.lastName}">Damian Gawlak</h3>
-            <p th:text="${meeting.shortenedDeccription}">Lorem ipsumdskj jsdvkjdsbckjdsbvsvds dsjfndskfndsjfs
-                sdjfsdkjnfkjds sdjfkdsnfskjfdn jsdnfkdsnf</p>
+        <div class="col-xs-2">
+            <!--formularz-->
+            <form action="/meetings" method="post" role="form">
+                <legend>Add New Meeting</legend>
+
+                <div class="form-group">
+                    <label for="title">Meeting title</label>
+                    <input type="text" class="form-control" name="title" id="title" placeholder="Input...">
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <input type="text" class="form-control" name="description" id="description" placeholder="Input...">
+                </div>
+                <div class="form-group">
+                    <label for="room">Phone Number</label>
+                    <input type="number" class="form-control" name="room" id="room" placeholder="Input...">
+                </div>
+                <div class="form-group">
+                    <label for="date">Email</label>
+                    <input type="text" class="form-control" name="date" id="date" placeholder="Input...">
+                </div>
+                <div class="form-group">
+                    <label for="owner">Email</label>
+                    <input type="text" class="form-control" name="owner" id="owner" placeholder="Input...">
+                </div>
+                <div class="form-group">
+                    <label for="department">Department</label>
+                    <select name="department" id="department" class="form-control">
+                        <option value="BACKEND">Backend</option>
+                        <option value="FRONTEND">Frontend</option>
+                        <option value="HR">HR</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+        <div class="row" th:each="meeting : ${meetings}">
+            <div class="col-xs-4 meeting">
+                <h6 th:text="${meeting.date}">21-11-2017</h6>
+                <h1>
+                    <strong th:text="${meeting.title}">Proces rekrutacyjny </strong><span
+                        th:text="${meeting.attendeesCount}">(6)</span><span
+                        th:text="${meeting.room.roomNumber}">Tej</span>
+                </h1>
+                <h3 th:text="${meeting.owner.firstName} + ' ' + ${meeting.owner.lastName}">Damian Gawlak</h3>
+                <p th:text="${meeting.shortenedDeccription}">Lorem ipsumdskj jsdvkjdsbckjdsbvsvds dsjfndskfndsjfs
+                    sdjfsdkjnfkjds sdjfkdsnfskjfdn jsdnfkdsnf</p>
+            </div>
         </div>
     </div>
     <!-- Bootstrap core JavaScript

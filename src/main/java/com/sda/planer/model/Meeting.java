@@ -1,6 +1,7 @@
 package com.sda.planer.model;
 
 import org.springframework.format.annotation.DateTimeFormat;
+import org.thymeleaf.util.StringUtils;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -20,6 +21,11 @@ public class Meeting {
     private Employee owner;
     @ManyToMany
     private List<Employee> attendees;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate date;
+
+    public Meeting() {
+    }
 
     public Long getId() {
         return id;
@@ -77,9 +83,10 @@ public class Meeting {
         this.owner = owner;
     }
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate date;
-
-    public Meeting() {
+    public int getattendeesCount(){
+        return (attendees == null ? 0 : attendees.size()) + 1;
+    }
+    public String getshortenedDeccription(){
+        return StringUtils.abbreviate(description, 20);
     }
 }
