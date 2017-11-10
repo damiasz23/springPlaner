@@ -17,7 +17,7 @@ public class Meeting {
     @ManyToOne
     private Room room;
     @ManyToOne
-    private Employee employee;
+    private Employee owner;
     @ManyToMany
     private List<Employee> attendees;
 
@@ -53,14 +53,6 @@ public class Meeting {
         this.room = room;
     }
 
-    public Employee getEmployee() {
-        return employee;
-    }
-
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
-    }
-
     public List<Employee> getAttendees() {
         return attendees;
     }
@@ -75,6 +67,14 @@ public class Meeting {
 
     public void setDate(LocalDate date) {
         this.date = date;
+    }
+
+    public Employee getOwner() {
+        return owner;
+    }
+
+    public void setOwner(Employee owner) {
+        this.owner = owner;
     }
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
