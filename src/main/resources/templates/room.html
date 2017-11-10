@@ -53,16 +53,11 @@
 </div>
 
 <div class="container">
-    <div class="row">
-        <div th:if="employee !=null"></div>
-        <h6 th:text="${employee.formatedDepartment}">Backend</h6>
-        <h1 th:text="${employee.firstName} + ' ' + ${employee.lastName}">Krzychu Nowak</h1>
-        <p>
-            <span th:text="'Telephone Number:' + ${employee.phoneNumber}">Telephone Number: 23643746237</span>
-            <span th:text="'Email: ' + ${employee.email}">Email: dam@op.pl</span>
-        </p>
-        </div>
-    <div th:unless="${employee} !=null">There's no employee with that id</div>
+    <div th:if="${room} != null">
+        <h1 th:text="${room.name} + ' (' + ${room.capacity} + ')'">Winkiel (16)</h1>
+    </div>
+    <div th:unless="${room} != null">
+        There's no room with that id
     </div>
 </div><!-- /.container -->
 

@@ -45,25 +45,47 @@
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="#">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="/employees">Employee</a></li>
+                <li><a href="/rooms">Room</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
 </div>
 
 <div class="container">
+
     <div class="row">
-        <div th:if="employee !=null"></div>
-        <h6 th:text="${employee.formatedDepartment}">Backend</h6>
-        <h1 th:text="${employee.firstName} + ' ' + ${employee.lastName}">Krzychu Nowak</h1>
-        <p>
-            <span th:text="'Telephone Number:' + ${employee.phoneNumber}">Telephone Number: 23643746237</span>
-            <span th:text="'Email: ' + ${employee.email}">Email: dam@op.pl</span>
-        </p>
+        <div class="col-xs-3">
+            <form action="/rooms" method="post" role="form">
+                <legend>Add New Rooms</legend>
+
+                <div class="form-group">
+                    <label for="roomNumber">Room number</label>
+                    <input type="text" class="form-control" name="roomNumber" id="roomNumber" placeholder="Input...">
+                </div>
+                <div class="form-group">
+                    <label for="capasity">Capasity</label>
+                    <input type="text" class="form-control" name="capasity" id="capasity" placeholder="Input...">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
         </div>
-    <div th:unless="${employee} !=null">There's no employee with that id</div>
+        <div class="col-xs-9">
+            <legend>Room List</legend>
+            <div class="list-group" th:each="room : ${rooms}">
+                <a href="#"
+                   th:text="'/rooms/' + ${room.id}"
+
+                   th:text="${room.roomNumber} + ' (' + ${room.capasity} + ')'"
+                   class="list-group-item">
+                    Item 1
+                    <button type="button" class="btn btn-success">Edit</button>
+                    <button type="button" class="btn btn-danger">Delite</button>
+                </a>
+            </div>
+        </div>
     </div>
+
 </div><!-- /.container -->
 
 <!-- Bootstrap core JavaScript

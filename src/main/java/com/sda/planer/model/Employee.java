@@ -1,7 +1,10 @@
 package com.sda.planer.model;
 
 
+import org.apache.commons.lang3.StringUtils;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Employee {
@@ -13,11 +16,18 @@ public class Employee {
     private String lastName;
     private String phoneNumber;
     private String email;
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     private Department department;
 
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "attendees")
+    private List<Meeting> meetings;
 
     public Employee() {
+    }
+
+    public String getFormatedDepartment(){
+        String lowerCased = StringUtils.lowerCase(department.toString());
+        return StringUtils.lowerCase(lowerCased);
     }
 
     public Employee(long id, String firstName, String lastName, String phoneNumber, String email, Department department) {

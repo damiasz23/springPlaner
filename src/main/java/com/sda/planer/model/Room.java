@@ -20,4 +20,28 @@ public class Room {
         this.roomNumber = roomNumber;
         this.capasity = capasity;
     }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getRoomNumber() {
+        return roomNumber;
+    }
+
+    public void setRoomNumber(String roomNumber) {
+        this.roomNumber = roomNumber;
+    }
+
+    public int getCapasity() {
+        return capasity;
+    }
+
+    public void setCapasity(int capasity) {
+        this.capasity = capasity;
+    }
 }
